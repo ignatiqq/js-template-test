@@ -22,7 +22,7 @@ function insertDataToTable(data) {
         const table = document.getElementById("employeetable");
         const rowTemplate = document.getElementById("productrow");
 
-        const rowData = [];
+        const rowsFragment = new DocumentFragment()
 
         data.forEach((item => {
             if(rowTemplate) {
@@ -37,15 +37,12 @@ function insertDataToTable(data) {
                 const surnameRowContent = document.createTextNode(item.name);
                 surnameRow.appendChild(surnameRowContent);
                 
-                rowData.push(templateUnit);
+                rowsFragment.appendChild(templateUnit);
 
             }
         }))
 
-        const insertRowDataToTable = node => table.appendChild(node);
-
-        rowData.forEach(insertRowDataToTable);
-
+        table.appendChild(rowsFragment)
 
     } else {
         alert("Woops your browser does not support templates")
