@@ -26,6 +26,7 @@ function insertDataToTable(data) {
 
         data.forEach((item => {
             if(rowTemplate) {
+
                 const templateUnit = rowTemplate.content.cloneNode(true);
                 const nameRow = templateUnit.querySelector("#name");
                 const surnameRow = templateUnit.querySelector("#surname");
@@ -36,7 +37,7 @@ function insertDataToTable(data) {
                 const surnameRowContent = document.createTextNode(item.name);
                 surnameRow.appendChild(surnameRowContent);
                 
-                rowData.push(nameRow, surnameRow);
+                rowData.push(templateUnit);
 
             }
         }))
